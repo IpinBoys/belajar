@@ -1,11 +1,9 @@
 <?php
-$host = "localhost";
+$server = "localhost";
 $user = "root";
 $password = "20000329";
-$dbname = "inventori";
+$nama_database = "inventori";
 
-$db = mysqli_connect($host, $user, $password, $dbname);
-if ($db) {
-	echo "berhasil terhubung";
-}
+$db = mysqli_connect($server, $user, $password, $nama_database);
+
 ?>

@@ -3,7 +3,7 @@ include "koneksi.php";
 
 $sql = "SELECT nama_barang, jumlah_barang, tgl_masuk, keadaan_barang FROM barang";
 
-$data = mysqli_query($koneksi,$sql);
+$data = mysqli_query($db,$sql);
 
 ?>
 <!DOCTYPE html>
@@ -22,27 +22,13 @@ $data = mysqli_query($koneksi,$sql);
 		</tr>
 <?php
 	foreach ($data as $barang):
-?>
-
+?>		
 		<tr>
-			<td>
-				<?php echo $barang['nama_barang']; ?>
-			</td>
-		</tr>		
-		<tr>
-			<td>
-				<?php echo $barang['jumlah_barang']; ?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $barang['tgl_masuk']; ?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $barang['keadaan_barang']; ?>
-			</td>
+			<td><?php echo $barang['nama_barang']; ?></td>		
+			<td><?php echo $barang['jumlah_barang']; ?></td>
+			<td><?php echo $barang['tgl_masuk']; ?></td>
+			<td></td>
+			<td><?php echo $barang['keadaan_barang']; ?></td>
 		</tr>
 <?php endforeach; ?>
 </table>
