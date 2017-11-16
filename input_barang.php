@@ -1,12 +1,24 @@
 <?php
 if (isset($_POST['kirim'])){
+
+	include "koneksi.php";
+
 	$nama = $_POST['nama'];
 	$jumlah = $_POST['jumlah'];
 	$jenis = $_POST['jenis'];
 	$keadaan = $_POST['keadaan'];
 
-echo $nama. ", ".$jumlah.", ".$jenis.", "."keadaan";
+	//echo $nama. ", ".$jumlah.", ".$jenis.", "."keadaan";
 
+	$sql = "INSERT INTO barang(nama_barang,jumlah_barang,id_jenis,keadaan_barang) VALUES ('$nama','$jumlah','$jenis','$keadaan') ";
+
+	$barang = mysqli_query($db,$sql);
+
+	if ($barang) {
+		echo "Barang berhasil disimpan";
+	}else{
+		echo "Barang tersimpan<br>";
+	}
 }
 
 ?>
@@ -16,7 +28,7 @@ echo $nama. ", ".$jumlah.", ".$jenis.", "."keadaan";
 	<title>Inventori</title>
 </head>
 <body>
-		<form>
+		<form method="POST">
 			<label>Nama Barang :</label>
 			<input type="text" name="nama"><br>
 			<label>Jumlah Barang :</label>
@@ -31,7 +43,7 @@ echo $nama. ", ".$jumlah.", ".$jenis.", "."keadaan";
 				<option value="baru">Baru</option>
 				<option value="bekas">Bekas</option>
 			</select><br>
-			<input type="submit" name="submit" value="Simpan">
+			<input type="submit" name="kirim" value="Simpan">
 		</form>
 
 </body>
