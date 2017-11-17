@@ -1,14 +1,15 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "20000329";
-$dbname = "AppInventori";
+include "koneksi.php";
 
-$koneksi = mysqli_connect($host, $user, $pass, $dbname);
+$id_barang = $_GET['id'];
+$sql = "DELETE from barang WHERE id_barang='$id_barang'";
 
-if ($koneksi) {
-	echo "sukses";
-}else{
-	echo "gagal";
-}
+$barang = mysqli_query($db,$sql);
+
+	if ($barang) {
+		echo "Barang Berhasil Terhapus";
+	}else{
+		echo "Barang Gagal di Hapus<br>";
+		echo mysqli_error($db);
+	}
 ?>

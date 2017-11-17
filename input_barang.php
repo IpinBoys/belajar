@@ -37,6 +37,7 @@ if (isset($_POST['kirim'])){
 			<select name="jenis">
 				<option value="1">Berbahaya</option>
 				<option value="2">Mudah Pecah</option>
+				<option value="3">Beracun</option>
 			</select><br>
 			<label>Keadaan :</label>
 			<select name="keadaan">
